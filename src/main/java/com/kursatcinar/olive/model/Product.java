@@ -1,31 +1,34 @@
 package com.kursatcinar.olive.model;
 
-public class Product {
-    private String name;
-    private String category;
-    private Long price;
+import lombok.*;
 
-    public String getName() {
-        return name;
-    }
+import javax.persistence.*;
 
-    public void setName(String name) {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity(name = "Product")
+@Table(name = "product")
+public class Product extends BaseEntity{
+
+    @Builder
+    public Product(Long id, String name, ProductCategory category, Double price) {
+        super(id);
         this.name = name;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
         this.category = category;
-    }
-
-    public Long getPrice() {
-        return price;
-    }
-
-    public void setPrice(Long price) {
         this.price = price;
     }
+
+    @Column(name = "name")
+    private String name;
+
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    private ProductCategory category;
+
+    @Column(name = "price")
+    private Double price;
+
 }
