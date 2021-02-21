@@ -1,4 +1,6 @@
-package com.kursatcinar.olive.model;
+package com.kursatcinar.olive.converter;
+
+import com.kursatcinar.olive.model.TelephoneType;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

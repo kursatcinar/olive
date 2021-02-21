@@ -14,10 +14,10 @@ import java.util.List;
 public class ProductCategory extends BaseEntity{
 
     @Builder
-    public ProductCategory(Long id, String name,ProductCategory superCategory, List<ProductCategory> subCategoryList) {
+    public ProductCategory(Long id, String name, ProductCategory parentCategory, List<ProductCategory> subCategoryList) {
         super(id);
         this.name = name;
-        this.superCategory = superCategory;
+        this.parentCategory = parentCategory;
         this.subCategoryList = subCategoryList;
     }
 
@@ -25,7 +25,7 @@ public class ProductCategory extends BaseEntity{
 
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id", referencedColumnName = "id")
-    private ProductCategory superCategory;
+    private ProductCategory parentCategory;
 
     @OneToMany(cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "id", referencedColumnName = "parent_id")

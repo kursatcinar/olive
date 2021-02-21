@@ -3,7 +3,7 @@ package com.kursatcinar.olive.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Getter
@@ -15,7 +15,7 @@ import java.util.List;
 public class Orders extends BaseEntity{
 
     @Builder
-    public Orders(Long id, Customer customer, List<OrderItem> orderItemList, Date orderDate) {
+    public Orders(Long id, Customer customer, List<OrderItem> orderItemList, Timestamp orderDate) {
         super(id);
         this.customer = customer;
         this.orderItemList = orderItemList;
@@ -28,5 +28,5 @@ public class Orders extends BaseEntity{
     @OneToMany(mappedBy = "orders", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<OrderItem> orderItemList;
 
-    private Date orderDate;
+    private Timestamp orderDate;
 }

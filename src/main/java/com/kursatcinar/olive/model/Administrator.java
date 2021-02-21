@@ -17,7 +17,7 @@ public class Administrator extends Person {
     @Builder
     public Administrator(Long id, String firstName, String lastName,
                     List<Address> addressList, List<Telephone> telephoneList,
-                    String email, String tckn) {
+                    String email) {
         super(id, firstName, lastName, email);
     }
 }
