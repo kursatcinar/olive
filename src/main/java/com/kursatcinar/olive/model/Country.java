@@ -31,6 +31,5 @@ public class Country extends BaseEntity {
     private String phoneCode;
 
     @OneToMany(mappedBy = "country", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", referencedColumnName = "country_id")
     private List<City> cityList;
 }

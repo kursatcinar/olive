@@ -13,10 +13,11 @@ import javax.persistence.*;
 public class OrderItem extends BaseEntity{
 
     @Builder
-    public OrderItem (Long id, Product product, Integer amount) {
+    public OrderItem (Long id, Product product, Integer amount, Orders orders) {
         super(id);
         this.product = product;
         this.amount = amount;
+        this.orders = orders;
     }
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
@@ -27,7 +28,7 @@ public class OrderItem extends BaseEntity{
     private Integer amount;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", referencedColumnName = "order_item_id")
-    private Order order;
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    private Orders orders;
 
 }

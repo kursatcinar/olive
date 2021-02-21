@@ -9,7 +9,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@MappedSuperclass
 @Entity(name = "ProductCategory")
 @Table(name = "product_category")
 public class ProductCategory extends BaseEntity{

@@ -10,15 +10,15 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "Order")
-@Table(name = "order")
-public class Order extends BaseEntity{
+@Entity(name = "Orders")
+@Table(name = "orders")
+public class Orders extends BaseEntity{
 
     @Builder
-    public Order (Long id, Customer customer, List<OrderItem> orderItemList, Date orderDate) {
+    public Orders(Long id, Customer customer, List<OrderItem> orderItemList, Date orderDate) {
         super(id);
         this.customer = customer;
-        this.orderItemList =orderItemList;
+        this.orderItemList = orderItemList;
         this.orderDate = orderDate;
     }
 
@@ -26,8 +26,7 @@ public class Order extends BaseEntity{
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
 
-    @OneToMany(mappedBy = "order", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_item_id", referencedColumnName = "id")
+    @OneToMany(mappedBy = "orders", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<OrderItem> orderItemList;
 
     @Column(name = "order_date")

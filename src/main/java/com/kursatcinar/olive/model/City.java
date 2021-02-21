@@ -32,7 +32,6 @@ public class City extends BaseEntity{
     private String plateCode;
 
     @OneToMany(mappedBy = "city", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", referencedColumnName = "city_id")
     private List<District> districtList;
 
 
