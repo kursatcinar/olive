@@ -10,5 +10,4 @@ public interface ProductCategoryRepository extends CrudRepository<ProductCategor
 
     Optional<ProductCategory> findByName(String name);
     Optional<ProductCategory> findByParentCategory(ProductCategory parentCategory);
-    Optional<ProductCategory> findBySubCategory (ProductCategory subCategory);
 }

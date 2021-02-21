@@ -3,6 +3,7 @@ package com.kursatcinar.olive.model;
 import javax.persistence.*;
 import java.util.List;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 @Getter
@@ -11,7 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @Entity(name = "Customer")
 @Table(name = "customer")
-public class Customer extends Person{
+public class Customer extends Person {
 
     @Builder
     public Customer(Long id, String firstName, String lastName, String email,
@@ -30,6 +31,8 @@ public class Customer extends Person{
     @OneToMany(mappedBy = "customer", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Telephone> telephoneList;
 
+    @NotNull
+    @Column(nullable = false)
     private String tckn;
 
     @OneToMany(mappedBy = "customer", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)

@@ -1,5 +1,6 @@
 package com.kursatcinar.olive.model;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -19,8 +20,16 @@ public class Person extends BaseEntity {
         this.email = email;
     }
 
+    @NotNull
+    @Column(nullable = false)
     private String firstName;
+
+    @NotNull
+    @Column(nullable = false)
     private String lastName;
+
+    @NotNull
+    @Column(nullable = false)
     private String email;
 
 }

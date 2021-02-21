@@ -1,5 +1,6 @@
 package com.kursatcinar.olive.model;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -19,8 +20,11 @@ public class District extends BaseEntity{
         this.city = city;
     }
 
+    @NotNull
+    @Column(nullable = false)
     private String name;
 
+    @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private City city;
 

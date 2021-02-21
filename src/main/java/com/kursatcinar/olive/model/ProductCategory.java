@@ -1,5 +1,6 @@
 package com.kursatcinar.olive.model;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,6 +22,8 @@ public class ProductCategory extends BaseEntity{
         this.subCategoryList = subCategoryList;
     }
 
+    @NotNull
+    @Column(nullable = false)
     private String name;
 
     @ManyToOne(optional = true, fetch = FetchType.LAZY)

@@ -10,6 +10,5 @@ import java.util.Optional;
 
 public interface OrdersRepository extends CrudRepository<Orders, Long> {
     Optional<Orders> findByCustomer (Customer customer);
-    Optional<Orders> findByOrderItem (OrderItem orderItem);
     Optional<Orders> findByOrderDate (Timestamp orderDate);
 }

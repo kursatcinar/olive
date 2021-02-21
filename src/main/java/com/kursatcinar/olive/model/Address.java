@@ -1,5 +1,6 @@
 package com.kursatcinar.olive.model;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -30,20 +31,27 @@ public class Address extends BaseEntity{
     @Column(name = "type")
     private AddressType addressType;
 
+    @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Country country;
 
+    @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private City city;
 
+    @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private District district;
 
+    @NotNull
+    @Column(nullable = false)
     private String address;
 
-    @Column(name = "primary_f")
+    @NotNull
+    @Column(name = "primary_f", columnDefinition = "boolean default false", nullable = false)
     private Boolean primaryFlag;
 
+    @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Customer customer;
 

@@ -1,5 +1,6 @@
 package com.kursatcinar.olive.model;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,9 +22,15 @@ public class Product extends BaseEntity{
         this.category = category;
     }
 
+    @NotNull
+    @Column(nullable = false)
     private String name;
+
+    @NotNull
+    @Column(nullable = false)
     private Double price;
 
+    @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private ProductCategory category;
 

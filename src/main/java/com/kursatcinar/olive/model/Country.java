@@ -1,5 +1,6 @@
 package com.kursatcinar.olive.model;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,8 +22,12 @@ public class Country extends BaseEntity {
         this.phoneCode = phoneCode;
     }
 
+    @NotNull
+    @Column(nullable = false)
     private String name;
+
     private String plateCode;
+
     private String phoneCode;
 
     @OneToMany(mappedBy = "country", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)

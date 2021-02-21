@@ -1,5 +1,6 @@
 package com.kursatcinar.olive.model;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,6 +18,10 @@ public class Telephone extends BaseEntity{
         super(id);
         this.title = title;
         this.telephoneType = telephoneType;
+        this.areaCode = areaCode;
+        this.phoneNumber = phoneNumber;
+        this.primaryFlag = primaryFlag;
+        this.customer = customer;
     }
 
     private String title;
@@ -24,15 +29,23 @@ public class Telephone extends BaseEntity{
     @Column(name = "type")
     private TelephoneType telephoneType;
 
+    @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Country country;
 
+    @NotNull
+    @Column(nullable = false)
     private String areaCode;
+
+    @NotNull
+    @Column(nullable = false)
     private String phoneNumber;
 
-    @Column(name = "primary_f")
+    @NotNull
+    @Column(name = "primary_f", columnDefinition = "boolean default false", nullable = false)
     private Boolean primaryFlag;
 
+    @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Customer customer;
 

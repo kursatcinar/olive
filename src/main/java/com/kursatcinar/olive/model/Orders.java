@@ -1,5 +1,6 @@
 package com.kursatcinar.olive.model;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,11 +23,14 @@ public class Orders extends BaseEntity{
         this.orderDate = orderDate;
     }
 
+    @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Customer customer;
 
     @OneToMany(mappedBy = "orders", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<OrderItem> orderItemList;
 
+    @NotNull
+    @Column(nullable = false)
     private Timestamp orderDate;
 }

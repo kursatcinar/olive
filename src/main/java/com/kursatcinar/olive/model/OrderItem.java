@@ -1,5 +1,6 @@
 package com.kursatcinar.olive.model;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -20,11 +21,15 @@ public class OrderItem extends BaseEntity{
         this.orders = orders;
     }
 
+    @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Product product;
 
+    @NotNull
+    @Column(nullable = false)
     private Integer amount;
 
+    @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Orders orders;
 

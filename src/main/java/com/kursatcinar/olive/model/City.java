@@ -1,5 +1,6 @@
 package com.kursatcinar.olive.model;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,8 +22,11 @@ public class City extends BaseEntity{
         this.districtList = districtList;
     }
 
+    @NotNull
+    @Column(nullable = false)
     private String name;
 
+    @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Country country;
 
