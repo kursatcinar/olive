@@ -19,27 +19,21 @@ public class Telephone extends BaseEntity{
         this.telephoneType = telephoneType;
     }
 
-    @Column(name = "title")
     private String title;
 
     @Column(name = "type")
     private TelephoneType telephoneType;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "country_id", referencedColumnName = "id")
     private Country country;
 
-    @Column(name = "area_code")
     private String areaCode;
-
-    @Column(name = "phone_number")
     private String phoneNumber;
 
     @Column(name = "primary_f")
     private Boolean primaryFlag;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name="customer_id", referencedColumnName = "id")
     private Customer customer;
 
 }

@@ -30,7 +30,6 @@ public class Customer extends Person{
     @OneToMany(mappedBy = "customer", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Telephone> telephoneList;
 
-    @Column(name = "tckn")
     private String tckn;
 
     @OneToMany(mappedBy = "customer", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)

@@ -14,21 +14,17 @@ import javax.persistence.*;
 public class Product extends BaseEntity{
 
     @Builder
-    public Product(Long id, String name, ProductCategory category, Double price) {
+    public Product(Long id, String name, Double price, ProductCategory category) {
         super(id);
         this.name = name;
-        this.category = category;
         this.price = price;
+        this.category = category;
     }
 
-    @Column(name = "name")
     private String name;
+    private Double price;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
     private ProductCategory category;
-
-    @Column(name = "price")
-    private Double price;
 
 }

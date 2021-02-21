@@ -21,7 +21,6 @@ public class ProductCategory extends BaseEntity{
         this.subCategoryList = subCategoryList;
     }
 
-    @Column(name = "name")
     private String name;
 
     @ManyToOne(optional = true, fetch = FetchType.LAZY)

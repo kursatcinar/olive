@@ -19,11 +19,9 @@ public class District extends BaseEntity{
         this.city = city;
     }
 
-    @Column(name = "name")
     private String name;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "city_id", referencedColumnName = "id")
     private City city;
 
 

@@ -23,12 +23,10 @@ public class Orders extends BaseEntity{
     }
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
 
     @OneToMany(mappedBy = "orders", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<OrderItem> orderItemList;
 
-    @Column(name = "order_date")
     private Date orderDate;
 }

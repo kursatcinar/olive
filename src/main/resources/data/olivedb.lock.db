@@ -1,0 +1,6 @@
+#FileLock
+#Sun Feb 21 06:23:55 TRT 2021
+server=192.168.56.1\:57037
+hostName=KURSAT-XPS
+method=file
+id=177c29d65f33efd389e69f149dfdfe9c7e8106a5d99

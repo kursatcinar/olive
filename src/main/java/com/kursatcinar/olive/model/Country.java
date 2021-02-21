@@ -21,13 +21,8 @@ public class Country extends BaseEntity {
         this.phoneCode = phoneCode;
     }
 
-    @Column(name = "name")
     private String name;
-
-    @Column(name = "plate_code")
     private String plateCode;
-
-    @Column(name = "phone_code")
     private String phoneCode;
 
     @OneToMany(mappedBy = "country", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
