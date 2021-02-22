@@ -6,7 +6,6 @@ import com.kursatcinar.olive.service.CountryService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -19,17 +18,17 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public Optional<Country> findByName(String name) {
+    public Country findByName(String name) {
         return countryRepository.findByName(name);
     }
 
     @Override
-    public Optional<Country> findByPlateCode(String plateCode) {
+    public Country findByPlateCode(String plateCode) {
         return countryRepository.findByPlateCode(plateCode);
     }
 
     @Override
-    public Optional<Country> findByPhoneCode(String phoneCode) {
+    public Country findByPhoneCode(String phoneCode) {
         return countryRepository.findByPhoneCode(phoneCode);
     }
 

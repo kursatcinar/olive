@@ -4,7 +4,8 @@ import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -15,11 +16,10 @@ import java.util.List;
 public class City extends BaseEntity{
 
     @Builder
-    public City (Long id, String name, String plateCode, List<District> districtList) {
+    public City (Long id, String name, String plateCode) {
         super(id);
         this.name = name;
         this.plateCode = plateCode;
-        this.districtList = districtList;
     }
 
     @NotNull
@@ -31,9 +31,5 @@ public class City extends BaseEntity{
     private Country country;
 
     private String plateCode;
-
-    @OneToMany(mappedBy = "city", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<District> districtList;
-
 
 }

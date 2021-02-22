@@ -5,7 +5,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -16,19 +17,15 @@ import java.util.List;
 public class Orders extends BaseEntity{
 
     @Builder
-    public Orders(Long id, Customer customer, List<OrderItem> orderItemList, Timestamp orderDate) {
+    public Orders(Long id, Customer customer, Timestamp orderDate) {
         super(id);
         this.customer = customer;
-        this.orderItemList = orderItemList;
         this.orderDate = orderDate;
     }
 
     @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Customer customer;
-
-    @OneToMany(mappedBy = "orders", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<OrderItem> orderItemList;
 
     @NotNull
     @Column(nullable = false)

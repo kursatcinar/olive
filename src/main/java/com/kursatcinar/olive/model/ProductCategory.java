@@ -4,7 +4,8 @@ import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -15,11 +16,10 @@ import java.util.List;
 public class ProductCategory extends BaseEntity{
 
     @Builder
-    public ProductCategory(Long id, String name, ProductCategory parentCategory, List<ProductCategory> subCategoryList) {
+    public ProductCategory(Long id, String name, ProductCategory parentCategory) {
         super(id);
         this.name = name;
         this.parentCategory = parentCategory;
-        this.subCategoryList = subCategoryList;
     }
 
     @NotNull
@@ -30,7 +30,4 @@ public class ProductCategory extends BaseEntity{
     @JoinColumn(name = "parent_id", referencedColumnName = "id")
     private ProductCategory parentCategory;
 
-    @OneToMany(cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", referencedColumnName = "parent_id")
-    private List<ProductCategory> subCategoryList;
 }

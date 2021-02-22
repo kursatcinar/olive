@@ -1,7 +1,8 @@
 package com.kursatcinar.olive.model;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.sun.istack.NotNull;
 import lombok.*;
@@ -15,26 +16,12 @@ import lombok.*;
 public class Customer extends Person {
 
     @Builder
-    public Customer(Long id, String firstName, String lastName, String email,
-                    List<Address> addressList, List<Telephone> telephoneList,
-                    String tckn, List<Orders> ordersList) {
+    public Customer(Long id, String firstName, String lastName, String email, String tckn) {
         super(id, firstName, lastName, email);
-        this.addressList = addressList;
-        this.telephoneList = telephoneList;
         this.tckn = tckn;
-        this.ordersList = ordersList;
     }
-
-    @OneToMany(mappedBy = "customer", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Address> addressList;
-
-    @OneToMany(mappedBy = "customer", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Telephone> telephoneList;
 
     @NotNull
     @Column(nullable = false)
     private String tckn;
-
-    @OneToMany(mappedBy = "customer", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Orders> ordersList;
 }

@@ -8,7 +8,6 @@ import com.kursatcinar.olive.service.TelephoneService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -21,32 +20,32 @@ public class TelephoneServiceImpl implements TelephoneService {
     }
 
     @Override
-    public Optional<Telephone> findByTitle(String title) {
+    public Telephone findByTitle(String title) {
         return telephoneRepository.findByTitle(title);
     }
 
     @Override
-    public Optional<Telephone> findByCountry(Country country) {
+    public Telephone findByCountry(Country country) {
         return telephoneRepository.findByCountry(country);
     }
 
     @Override
-    public Optional<Telephone> findByAreaCode(String areaCode) {
+    public Telephone findByAreaCode(String areaCode) {
         return telephoneRepository.findByAreaCode(areaCode);
     }
 
     @Override
-    public Optional<Telephone> findByPhoneNumber(String phoneNumber) {
+    public Telephone findByPhoneNumber(String phoneNumber) {
         return telephoneRepository.findByPhoneNumber(phoneNumber);
     }
 
     @Override
-    public Optional<Telephone> findByPrimaryFlag(Boolean primaryFlag) {
+    public Telephone findByPrimaryFlag(Boolean primaryFlag) {
         return telephoneRepository.findByPrimaryFlag(primaryFlag);
     }
 
     @Override
-    public Optional<Telephone> findByCustomer(Customer customer) {
+    public Telephone findByCustomer(Customer customer) {
         return telephoneRepository.findByCustomer(customer);
     }
 

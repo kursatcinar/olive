@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -21,12 +20,12 @@ public class OrdersServiceImpl implements OrdersService {
     }
 
     @Override
-    public Optional<Orders> findByCustomer(Customer customer) {
+    public Orders findByCustomer(Customer customer) {
         return ordersRepository.findByCustomer(customer);
     }
 
     @Override
-    public Optional<Orders> findByOrderDate(Timestamp orderDate) {
+    public Orders findByOrderDate(Timestamp orderDate) {
         return ordersRepository.findByOrderDate(orderDate);
     }
 

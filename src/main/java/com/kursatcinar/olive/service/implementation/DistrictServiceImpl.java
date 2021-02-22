@@ -7,7 +7,6 @@ import com.kursatcinar.olive.service.DistrictService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -20,12 +19,12 @@ public class DistrictServiceImpl implements DistrictService {
     }
 
     @Override
-    public Optional<District> findByName(String name) {
+    public District findByName(String name) {
         return districtRepository.findByName(name);
     }
 
     @Override
-    public Optional<District> findByCity(City city) {
+    public District findByCity(City city) {
         return districtRepository.findByCity(city);
     }
 

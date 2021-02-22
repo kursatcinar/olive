@@ -6,30 +6,29 @@ import com.kursatcinar.olive.service.AdministratorService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
-public class AdministratoServiceImpl implements AdministratorService {
+public class AdministratorServiceImpl implements AdministratorService {
 
     private final AdministratorRepository administratorRepository;
 
-    public AdministratoServiceImpl(AdministratorRepository administratorRepository) {
+    public AdministratorServiceImpl(AdministratorRepository administratorRepository) {
         this.administratorRepository = administratorRepository;
     }
 
     @Override
-    public Optional<Administrator> findByFirstName(String firstName) {
+    public Administrator findByFirstName(String firstName) {
         return administratorRepository.findByFirstName(firstName);
     }
 
     @Override
-    public Optional<Administrator> findByLastName(String lastName) {
+    public Administrator findByLastName(String lastName) {
         return administratorRepository.findByLastName(lastName);
     }
 
     @Override
-    public Optional<Administrator> findByEmail(String email) {
+    public Administrator findByEmail(String email) {
         return administratorRepository.findByEmail(email);
     }
 

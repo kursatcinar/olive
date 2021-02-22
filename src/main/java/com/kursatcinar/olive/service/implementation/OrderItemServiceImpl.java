@@ -8,7 +8,6 @@ import com.kursatcinar.olive.service.OrderItemService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -21,17 +20,17 @@ public class OrderItemServiceImpl implements OrderItemService {
     }
 
     @Override
-    public Optional<OrderItem> findByProduct(Product product) {
+    public OrderItem findByProduct(Product product) {
         return orderItemRepository.findByProduct(product);
     }
 
     @Override
-    public Optional<OrderItem> findByAmount(Integer amount) {
+    public OrderItem findByAmount(Integer amount) {
         return orderItemRepository.findByAmount(amount);
     }
 
     @Override
-    public Optional<OrderItem> findByOrders(Orders orders) {
+    public OrderItem findByOrders(Orders orders) {
         return orderItemRepository.findByOrders(orders);
     }
 

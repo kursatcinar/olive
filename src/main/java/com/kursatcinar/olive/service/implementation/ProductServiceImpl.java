@@ -7,7 +7,6 @@ import com.kursatcinar.olive.service.ProductService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -20,17 +19,17 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Optional<Product> findByName(String name) {
+    public Product findByName(String name) {
         return productRepository.findByName(name);
     }
 
     @Override
-    public Optional<Product> findByPrice(Double price) {
+    public Product findByPrice(Double price) {
         return productRepository.findByPrice(price);
     }
 
     @Override
-    public Optional<Product> findByCategory(ProductCategory productCategory) {
+    public Product findByCategory(ProductCategory productCategory) {
         return productRepository.findByCategory(productCategory);
     }
 

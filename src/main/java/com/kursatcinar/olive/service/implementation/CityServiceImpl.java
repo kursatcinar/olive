@@ -7,7 +7,6 @@ import com.kursatcinar.olive.service.CityService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -20,17 +19,17 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public Optional<City> findByCountry(Country country) {
+    public City findByCountry(Country country) {
         return cityRepository.findByCountry(country);
     }
 
     @Override
-    public Optional<City> findByPlateCode(String plateCode) {
+    public City findByPlateCode(String plateCode) {
         return cityRepository.findByPlateCode(plateCode);
     }
 
     @Override
-    public Optional<City> findByName(String name) {
+    public City findByName(String name) {
         return cityRepository.findByName(name);
     }
 

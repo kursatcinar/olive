@@ -6,7 +6,6 @@ import com.kursatcinar.olive.service.CustomerService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -19,22 +18,22 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Optional<Customer> findByTckn(String tckn) {
+    public Customer findByTckn(String tckn) {
         return customerRepository.findByTckn(tckn);
     }
 
     @Override
-    public Optional<Customer> findByFirstName(String firstName) {
+    public Customer findByFirstName(String firstName) {
         return customerRepository.findByFirstName(firstName);
     }
 
     @Override
-    public Optional<Customer> findByLastName(String lastName) {
+    public Customer findByLastName(String lastName) {
         return customerRepository.findByLastName(lastName);
     }
 
     @Override
-    public Optional<Customer> findByEmail(String email) {
+    public Customer findByEmail(String email) {
         return customerRepository.findByEmail(email);
     }
 

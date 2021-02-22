@@ -6,7 +6,6 @@ import com.kursatcinar.olive.service.ProductCategoryService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -19,12 +18,12 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
     }
 
     @Override
-    public Optional<ProductCategory> findByName(String name) {
+    public ProductCategory findByName(String name) {
         return productCategoryRepository.findByName(name);
     }
 
     @Override
-    public Optional<ProductCategory> findByParentCategory(ProductCategory parentCategory) {
+    public Set<ProductCategory> findByParentCategory(ProductCategory parentCategory) {
         return productCategoryRepository.findByParentCategory(parentCategory);
     }
 
