@@ -4,6 +4,7 @@ import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Currency;
 
 @Getter
 @Setter
@@ -15,10 +16,11 @@ import javax.persistence.*;
 public class Product extends BaseEntity{
 
     @Builder
-    public Product(Long id, String name, Double price, ProductCategory category) {
+    public Product(Long id, String name, Double price, Currency currency, ProductCategory category) {
         super(id);
         this.name = name;
         this.price = price;
+        this.currency = currency;
         this.category = category;
     }
 
@@ -31,7 +33,19 @@ public class Product extends BaseEntity{
     private Double price;
 
     @NotNull
+    @Column(nullable = false)
+    private Currency currency = Currency.getInstance("TRY");
+
+    @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private ProductCategory category;
+
+    @NotNull
+    @Column(nullable = false)
+    private Double quantity;
+
+    @NotNull
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private UnitOfMeasure unitOfMeasure;
 
 }

@@ -2,6 +2,7 @@ package com.kursatcinar.olive.repository;
 
 import com.kursatcinar.olive.model.ProductCategory;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.Set;
 

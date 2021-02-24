@@ -2,6 +2,7 @@ package com.kursatcinar.olive.service.implementation;
 
 import com.kursatcinar.olive.model.Product;
 import com.kursatcinar.olive.model.ProductCategory;
+import com.kursatcinar.olive.model.UnitOfMeasure;
 import com.kursatcinar.olive.repository.ProductRepository;
 import com.kursatcinar.olive.service.ProductService;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,16 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product findByCategory(ProductCategory productCategory) {
         return productRepository.findByCategory(productCategory);
+    }
+
+    @Override
+    public Product findByQuantity(Double quantity) {
+        return productRepository.findByQuantity(quantity);
+    }
+
+    @Override
+    public Product findByUnitOfMeasure(UnitOfMeasure unitOfMeasure) {
+        return productRepository.findByUnitOfMeasure(unitOfMeasure);
     }
 
     @Override

@@ -13,7 +13,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity(name = "ProductCategory")
 @Table(name = "product_category")
-public class ProductCategory extends BaseEntity{
+public class ProductCategory extends BaseEntity implements Comparable<ProductCategory>{
 
     @Builder
     public ProductCategory(Long id, String name, ProductCategory parentCategory) {
@@ -30,4 +30,10 @@ public class ProductCategory extends BaseEntity{
     @JoinColumn(name = "parent_id", referencedColumnName = "id")
     private ProductCategory parentCategory;
 
+    @Override
+    public int compareTo(ProductCategory productCategory) {
+        int last = (int) (this.getId() - productCategory.getId());
+        //Sorting by first name if last name is same d
+        return last == 0 ? this.getName().compareTo(productCategory.getName()) : last;
+    }
 }

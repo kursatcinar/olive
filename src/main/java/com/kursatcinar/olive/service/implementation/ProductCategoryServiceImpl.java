@@ -5,8 +5,7 @@ import com.kursatcinar.olive.repository.ProductCategoryRepository;
 import com.kursatcinar.olive.service.ProductCategoryService;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class ProductCategoryServiceImpl implements ProductCategoryService {
@@ -30,7 +29,7 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
     @Override
     public Set<ProductCategory> findAll() {
         Set<ProductCategory> productCategorySet = new HashSet<>();
-        productCategoryRepository.findAll().forEach(productCategorySet::add);
+        productCategoryRepository.findAll().iterator().forEachRemaining(productCategorySet::add);
         return productCategorySet;
     }
 
